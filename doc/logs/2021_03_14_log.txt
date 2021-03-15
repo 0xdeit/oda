@@ -1,0 +1,35 @@
+2021-03-14 @ 07:41 > 
+#1 First implementation of Vector2 methods allowed angles to be negative...
+
+TEST: [START] Running Vector2 tests for methods...
+TEST: Starting information...
+INIT VECTOR WITH INFO:
+        Components: {(-1.5, 3.2), (4, -6.7)}
+        Angle: -60.9454 deg.
+        Angle: -1.0637 rad.
+        Length: 11.3252
+Rotating vec +5 degrees...
+INIT VECTOR WITH INFO:
+        Components: {(-1.5, 3.2), (6.34191, -9.38297)}
+        Angle: -55.9454 deg.
+        Angle: -0.976431 rad.
+        Length: 11.3252
+Rotating vec +0.15 radians...
+INIT VECTOR WITH INFO:
+        Components: {(-1.5, 3.2), (7.67287, -8.32989)}
+        Angle: -47.351 deg.
+        Angle: -0.826431 rad.
+        Length: 11.3252
+Scale vec by a factor of 2...
+INIT VECTOR WITH INFO:
+        Components: {(-1.5, 3.2), (15.3457, -16.6598)}
+        Angle: -47.351 deg.
+        Angle: -0.826431 rad.
+        Length: 22.6504
+Resetting vec to 5 length
+INIT VECTOR WITH INFO:
+        Components: {(-1.5, 3.2), (3.38752, -3.67759)}
+        Angle: -47.351 deg.
+        Angle: -0.826431 rad.
+        Length: 5
+TEST: [END] Vector2 tests finished running...
