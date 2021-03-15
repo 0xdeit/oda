@@ -5,7 +5,7 @@
 #ifndef ODA_VECTOR3_H
 #define ODA_VECTOR3_H
 
-#include "Scalar3.h"
+#include "LibPhys/Math/GeometryTypes.h"
 
 namespace usc::types {
     class Vector3 {

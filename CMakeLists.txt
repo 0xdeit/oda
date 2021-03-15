@@ -4,11 +4,11 @@ project(oda)
 set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
-include_directories(include/libphys)
-include_directories(include/libphys/body)
-include_directories(include/libphys/collision)
-include_directories(include/libphys/math)
-include_directories(include/utils)
+include_directories(include/LibPhys)
+include_directories(include/LibPhys/body)
+include_directories(include/LibPhys/collision)
+include_directories(include/LibPhys/Math)
+include_directories(include/Misc)
 
 add_executable(oda
-        src/main.cpp include/libphys/math/Vector2.cpp include/libphys/math/Vector2.h include/libphys/math/Vector3.cpp include/libphys/math/Vector3.h include/libphys/math/Scalar2.h include/libphys/math/Scalar3.h include/libphys/math/math_helper.h include/libphys/test/Vector2_test.cpp include/libphys/test/Vector2_test.h include/utils/print_utils.h)
+        src/main.cpp include/LibPhys/Math/Vector2.cpp include/LibPhys/Math/Vector2.h include/LibPhys/Math/Vector3.cpp include/LibPhys/Math/Vector3.h include/LibPhys/Math/math_helper.h include/LibPhys/Test/Vector2_test.cpp include/LibPhys/Test/Vector2_test.h include/Misc/print_utils.h include/LibPhys/Math/GeometryTypes.h include/LibPhys/Math/Constants.h)

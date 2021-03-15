@@ -2,7 +2,7 @@
 // Created by dgt on 3/13/2021.
 //
 
-#include "libphys/math/Vector3.h"
+#include "LibPhys/Math/Vector3.h"
 #include "math_helper.h"
 #include <iostream>
 

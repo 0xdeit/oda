@@ -3,13 +3,13 @@
 //
 
 #include "Vector2_test.h"
-#include "libphys/math/Vector2.h"
-#include "utils/print_utils.h"
+#include "LibPhys/Math/Vector2.h"
+#include "Misc/print_utils.h"
 
 namespace usc::test {
     static void Vector2Methods() {
-        usc::types::Scalar2 sca1{-1.5, 3.2};
-        usc::types::Scalar2 sca2{4, -6.7};
+        usc::types::Cartesian2 sca1{-1.5, 3.2};
+        usc::types::Cartesian2 sca2{4, -6.7};
         usc::types::Vector2 vector{sca1, sca2};
 
         utils::TestPrintLn("[START] Running Vector2 tests for methods...");

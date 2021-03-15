@@ -5,7 +5,7 @@
 #ifndef ODA_VECTOR2_H
 #define ODA_VECTOR2_H
 
-#include "libphys/math/Scalar2.h"
+#include "LibPhys/Math/GeometryTypes.h"
 #include "math_helper.h"
 
 namespace usc::types {
@@ -14,14 +14,14 @@ namespace usc::types {
         double angle_;
         double length_;
     public:
-        Scalar2 origin{};
-        Scalar2 end{};
+        Cartesian2 origin{};
+        Cartesian2 end{};
 
         // Create a new Vector2 object with a start and end point, calculating the length and angle automatically.
-        Vector2(Scalar2 &start_point, Scalar2 &end_point);
+        Vector2(Cartesian2 &start_point, Cartesian2 &end_point);
 
         // Create a new Vector2 object with an origin point, length and angle, calculating the end point automatically.
-        Vector2(Scalar2 &origin, double length, double theta, AngleType angle_type = kDegrees);
+        Vector2(Cartesian2 &origin, double length, double theta, AngleType angle_type = kDegrees);
 
         // Prints start, end, length and angle of vector to stdout.
         void Info(bool clockwise_angle = false) const;

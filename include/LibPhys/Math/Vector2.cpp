@@ -2,9 +2,11 @@
 // Created by dgt on 3/13/2021.
 //
 
-#include "libphys/math/Vector2.h"
+#include "LibPhys/Math/Vector2.h"
 #include <iostream>
 #include <cmath>
+
+// TODO: add function comments.
 
 namespace usc::types {
     double Vector2::AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, AngleType angle_type) {
@@ -21,23 +23,23 @@ namespace usc::types {
 
     void Vector2::Info(bool clockwise_angle) const {
         std::cout << "VECTOR2 WITH INFO:" << "\n\t"
-                  << "Components: {(" << this->origin.first << ", " << this->origin.last << "), ("
-                  << this->end.first << ", " << this->end.last << ")}" << "\n\t"
+                  << "Components: {(" << this->origin.x << ", " << this->origin.y << "), ("
+                  << this->end.x << ", " << this->end.y << ")}" << "\n\t"
                   << "Angle: " << (clockwise_angle ? this->angle_ : this->angle_ + circumference_degrees) << " deg.\n\t"
                   << "Angle: " << (clockwise_angle ? conversion::DegreesToRadians(this->angle_) :
                                    conversion::DegreesToRadians(this->angle_) + circumference_degrees) << " rad.\n\t"
                   << "Length: " << this->length_ << std::endl;
     }
 
-    Vector2::Vector2(Scalar2 &start_point, Scalar2 &end_point) {
+    Vector2::Vector2(Cartesian2 &start_point, Cartesian2 &end_point) {
         this->origin = start_point;
         this->end = end_point;
-        Scalar2 polar = conversion::CartesianToPolar(this->origin, this->end);
-        this->length_ = polar.first;
-        this->angle_ = polar.last;
+        Polar polar = conversion::CartesianToPolar(this->origin, this->end);
+        this->length_ = polar.radius;
+        this->angle_ = polar.theta;
     }
 
-    Vector2::Vector2(Scalar2 &origin, double length, double theta, AngleType angle_type) {
+    Vector2::Vector2(Cartesian2 &origin, double length, double theta, AngleType angle_type) {
         switch (angle_type) {
             case kDegrees:
                 this->angle_ = theta;

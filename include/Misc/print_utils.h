@@ -7,6 +7,9 @@
 #include <iostream>
 
 namespace usc::utils{
+    // TODO: debug print?
+    // TODO: log print?
+
     // Print a string to stdout with a carriage return at the end.
     static void PrintLn(const std::string& msg){
         std::cout << msg << "\n";
