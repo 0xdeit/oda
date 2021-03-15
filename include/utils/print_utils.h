@@ -7,10 +7,12 @@
 #include <iostream>
 
 namespace usc::utils{
+    // Print a string to stdout with a carriage return at the end.
     static void PrintLn(const std::string& msg){
         std::cout << msg << "\n";
     }
 
+    // Print a string to stdout with "<TEST>:" at the beginning and a carriage return at the end.
     static void TestPrintLn(const std::string& msg){
         std::cout << "<TEST>: " << msg << "\n";
     }

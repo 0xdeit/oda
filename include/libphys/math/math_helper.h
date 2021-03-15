@@ -27,7 +27,7 @@ namespace usc::conversion {
         return degrees * (types::pi / 180);
     }
 
-    // Returns a Scalar2 with the cartesian components first and last of a vector that begins in the origin(0,0).
+    // Convert cartesian coordinates with the origin at (0, 0) and  end in (x, y) form to polar coordinates (r, theta).
     static types::Scalar2 CartesianToPolar(double x, double y, types::AngleType angle_type = types::kDegrees) {
         types::Scalar2 result{0, 0};
 
@@ -35,7 +35,7 @@ namespace usc::conversion {
 
         switch (angle_type) {
             case types::kDegrees:
-                // TODO: review the proper use of radians and degrees of atan2
+                // atan2 returns the arc in radians.
                 result.last = RadiansToDegrees(atan2(y, x));
                 break;
             case types::kRadians:
@@ -46,7 +46,7 @@ namespace usc::conversion {
         return result;
     }
 
-    // Returns a Scalar2 with the cartesian components first and last of a vector that begins in a given origin.
+    // Convert cartesian coordinates with given origin and end in (x, y) form to polar coordinates (r, theta).
     static types::Scalar2 CartesianToPolar(types::Scalar2 &origin, types::Scalar2 &end, types::AngleType angle_type = types::kDegrees) {
         types::Scalar2 result{0, 0};
 
@@ -57,7 +57,7 @@ namespace usc::conversion {
 
         switch (angle_type) {
             case types::kDegrees:
-                // TODO: review the proper use of radians and degrees of atan2
+                // atan2 returns the arc in radians.
                 result.last = RadiansToDegrees(atan2(y, x));
                 break;
             case types::kRadians:
@@ -68,7 +68,9 @@ namespace usc::conversion {
         return result;
     }
 
-    // TODO: Create analog function with a given origin.
+    // TODO: Create analog PolarToCartesian function with a given origin if really needed?
+
+    // Convert polar coordinates (r, theta) to cartesian coordinates (x, y)
     static types::Scalar2
     PolarToCartesian(double length, double angle, types::AngleType angle_type = types::kDegrees) {
         types::Scalar2 result{0, 0};
