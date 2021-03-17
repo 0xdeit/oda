@@ -8,7 +8,7 @@
 namespace usc::test {
     // Test the following methods of the usc::types::Vector2 class:
     // `Info(bool)`,
-    // `Rotate(double, AngleType)`,
+    // `Rotate(double, Angle)`,
     // `Scale(double)`,
     // `AdjustLength(double)`
     static void Vector2Methods();

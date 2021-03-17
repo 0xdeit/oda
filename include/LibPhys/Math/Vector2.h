@@ -6,7 +6,7 @@
 #define ODA_VECTOR2_H
 
 #include "LibPhys/Math/GeometryTypes.h"
-#include "math_helper.h"
+#include "LibPhys/Math/Conversions.h"
 
 namespace usc::types {
     class Vector2 {
@@ -21,13 +21,13 @@ namespace usc::types {
         Vector2(Cartesian2 &start_point, Cartesian2 &end_point);
 
         // Create a new Vector2 object with an origin point, length and angle, calculating the end point automatically.
-        Vector2(Cartesian2 &origin, double length, double theta, AngleType angle_type = kDegrees);
+        Vector2(Cartesian2 &origin, double length, double theta, Angle angle_type = kDegrees);
 
         // Prints start, end, length and angle of vector to stdout.
         void Info(bool clockwise_angle = false) const;
 
         // Rotate vector, calculating new end point.
-        void Rotate(double angle, AngleType angle_type = kDegrees);
+        void Rotate(double angle, Angle angle_type = kDegrees);
 
         // Scale vector, calculating new end point.
         void Scale(double factor);
@@ -36,7 +36,7 @@ namespace usc::types {
         void AdjustLength(double length);
 
         // Given two Scalar2 points, calculate the angle between them and return it in the angle type specified.
-        static double AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, AngleType angle_type = kDegrees);
+        static double AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, Angle angle_type = kDegrees);
     };
 }
 #endif //ODA_VECTOR2_H

@@ -9,7 +9,7 @@
 // TODO: add function comments.
 
 namespace usc::types {
-    double Vector2::AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, AngleType angle_type) {
+    double Vector2::AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, Angle angle_type) {
         double result = atan2((end_point.last - start_point.last), (end_point.first - start_point.first));
         switch (angle_type) {
             case kRadians:
@@ -34,12 +34,12 @@ namespace usc::types {
     Vector2::Vector2(Cartesian2 &start_point, Cartesian2 &end_point) {
         this->origin = start_point;
         this->end = end_point;
-        Polar polar = conversion::CartesianToPolar(this->origin, this->end);
+        Polar polar = conversion::Cartesian2ToPolar(this->origin, this->end);
         this->length_ = polar.radius;
         this->angle_ = polar.theta;
     }
 
-    Vector2::Vector2(Cartesian2 &origin, double length, double theta, AngleType angle_type) {
+    Vector2::Vector2(Cartesian2 &origin, double length, double theta, Angle angle_type) {
         switch (angle_type) {
             case kDegrees:
                 this->angle_ = theta;
@@ -50,10 +50,10 @@ namespace usc::types {
         }
         this->length_ = length;
         this->origin = origin;
-        this->end = conversion::PolarToCartesian(length, this->angle_);
+        this->end = conversion::PolarToCartesian2(length, this->angle_);
     }
 
-    void Vector2::Rotate(double angle, AngleType angle_type) {
+    void Vector2::Rotate(double angle, Angle angle_type) {
         switch (angle_type) {
             case kDegrees:
                 this->angle_ += angle;
@@ -62,16 +62,16 @@ namespace usc::types {
                 this->angle_ += conversion::RadiansToDegrees(angle);
                 break;
         }
-        this->end = conversion::PolarToCartesian(this->length_, this->angle_);
+        this->end = conversion::PolarToCartesian2(this->length_, this->angle_);
     }
 
     void Vector2::Scale(double factor) {
         this->length_ *= factor;
-        this->end = conversion::PolarToCartesian(this->length_, this->angle_);
+        this->end = conversion::PolarToCartesian2(this->length_, this->angle_);
     }
 
     void Vector2::AdjustLength(double length) {
         this->length_ = length;
-        this->end = conversion::PolarToCartesian(this->length_, this->angle_);
+        this->end = conversion::PolarToCartesian2(this->length_, this->angle_);
     }
 }

@@ -3,7 +3,7 @@
 //
 
 #include "LibPhys/Math/Vector3.h"
-#include "math_helper.h"
+#include "LibPhys/Math/Conversions.h"
 #include <iostream>
 
 namespace usc::types {
