@@ -29,6 +29,11 @@ namespace usc::types {
     struct Spherical {
         double radius, theta, phi;
     };
+
+    enum Angle {
+        kRadians,
+        kDegrees
+    };
 }
 
 #endif //ODA_GEOMETRYTYPES_H

@@ -2,19 +2,12 @@
 // Created by dgt on 3/13/2021.
 //
 
-#ifndef ODA_MATH_HELPER_H
-#define ODA_MATH_HELPER_H
+#ifndef ODA_CONVERSIONS_H
+#define ODA_CONVERSIONS_H
 
 #include "LibPhys/Math/GeometryTypes.h"
 #include "LibPhys/Math/Constants.h"
 #include <cmath>
-
-namespace usc::types {
-    enum AngleType {
-        kRadians,
-        kDegrees
-    };
-}
 
 namespace usc::conversion {
     static double RadiansToDegrees(double radians) {
@@ -26,7 +19,7 @@ namespace usc::conversion {
     }
 
     // Convert cartesian coordinates with the origin at (0, 0) and  end in (x, y) form to polar coordinates (r, theta).
-    static types::Polar CartesianToPolar(double x, double y, types::AngleType angle_output_type = types::kDegrees) {
+    static types::Polar Cartesian2ToPolar(double x, double y, types::Angle angle_output_type = types::kDegrees) {
         types::Polar result{0, 0};
 
         result.radius = sqrt((pow(x, 2) + pow(y, 2)));
@@ -44,7 +37,7 @@ namespace usc::conversion {
 
     // Convert cartesian coordinates with given origin and end in (x, y) form to polar coordinates (r, theta).
     static types::Polar
-    CartesianToPolar(types::Cartesian2 &origin, types::Cartesian2 &end, types::AngleType angle_output_type = types::kDegrees) {
+    Cartesian2ToPolar(types::Cartesian2 &origin, types::Cartesian2 &end, types::Angle angle_output_type = types::kDegrees) {
         types::Polar result{0, 0};
 
         double delta_x = end.x - origin.x;
@@ -65,7 +58,7 @@ namespace usc::conversion {
 
     // Convert polar coordinates (r, theta) to cartesian coordinates (x, y)
     static types::Cartesian2
-    PolarToCartesian(double length, double angle, types::AngleType angle_input_type = types::kDegrees) {
+    PolarToCartesian2(double length, double angle, types::Angle angle_input_type = types::kDegrees) {
         types::Cartesian2 result{0, 0};
 
         // Both cos() and sin() take the angle param in radians.
@@ -82,7 +75,7 @@ namespace usc::conversion {
     // Convert spherical coordinates (radial distance, polar angle, azimuth angle) to cartesian (x, y, z)
     // Names for the spherical components come from the ISO 80000-2:2019 convention (src: Wikipedia)
     static types::Cartesian3
-    SphericalToCartesian(double radius, double theta, double phi, types::AngleType angle_input_type = types::kDegrees) {
+    SphericalToCartesian3(double radius, double theta, double phi, types::Angle angle_input_type = types::kDegrees) {
         types::Cartesian3 result{0, 0, 0};
 
         // Both cos() and sin() take the angle param in radians.
@@ -112,4 +105,4 @@ namespace usc::conversion {
     }
 }
 
-#endif //ODA_MATH_HELPER_H
+#endif //ODA_CONVERSIONS_H
