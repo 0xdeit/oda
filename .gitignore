@@ -1,6 +1,9 @@
 # Ignore build dir
 build/*
 
+# Ignore CLion settings
+.idea
+
 # Prerequisites
 *.d
 
