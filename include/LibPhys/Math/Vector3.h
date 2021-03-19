@@ -13,15 +13,23 @@ namespace usc::types {
         double phi_angle_;
         double theta_angle_;
         double length_;
+        void RecalculateEndPoint_();
     public:
-        Scalar3 origin{};
-        Scalar3 end{};
+        Cartesian3 origin{};
+        Cartesian3 end{};
 
-        Vector3(Scalar3 &start, Scalar3 &end);
+        Vector3(Cartesian3 &start_point, Cartesian3 &end_point);
 
-        // TODO: Constructor with angles
+        Vector3(Cartesian3 &origin, double length, double theta, double phi,
+                Angle angle_input = kDegrees);
 
         void Info() const;
+
+        void Rotate(double theta, double phi, Angle angle_input = kDegrees);
+
+        void Scale(double factor);
+
+        void AdjustLength(double length);
     };
 }
 #endif //ODA_VECTOR3_H
