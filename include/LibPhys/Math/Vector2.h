@@ -37,11 +37,6 @@ namespace usc::types {
 
         // Set new length of vector, calculating new end point.
         void AdjustLength(double length);
-
-        // Given two Scalar2 points, calculate the angle between them
-        // and return it in the angle type specified.
-        static double AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point,
-                                          Angle angle_output = kDegrees);
     };
 }
 #endif //ODA_VECTOR2_H

@@ -7,21 +7,6 @@
 #include <cmath>
 
 namespace usc::types {
-    double
-    Vector2::AngleBetweenScalar2(Scalar2 &start_point, Scalar2 &end_point, Angle angle_output) {
-        double delta_x = (end_point.first - start_point.first);
-        double delta_y = (end_point.last - start_point.last);
-
-        // atan2 returns arc in radians
-        double result = atan2(delta_y, delta_x);
-
-        // if user wants angle as degrees
-        if (angle_output == kDegrees)
-            result = conversion::RadiansToDegrees(result);
-
-        return result;
-    }
-
     void Vector2::Info() const {
         std::cout << "[VECTOR2] INFO:" << "\n\t"
                   << "Components: {(" << origin.x << ", " << origin.y
